@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Mod7Exer1.MainPage"
+             Title="Main Page">
+
+    <!-- Background with subtle gradient -->
+    <ContentPage.Background>
+        <LinearGradientBrush>
+            <GradientStop Color="#ffccbc" Offset="0.0" />
+            <!-- Light Coral -->
+            <GradientStop Color="#d1c4e9" Offset="1.0" />
+            <!-- Light Purple -->
+        </LinearGradientBrush>
+    </ContentPage.Background>
+
+    <Grid Padding="20">
+        <ScrollView>
+            <VerticalStackLayout Spacing="20" HorizontalOptions="Center" VerticalOptions="Center">
+                <!-- Title -->
+                <Label 
+                    Text="Welcome"
+                    FontSize="36"
+                    FontAttributes="Bold"
+                    TextColor="#2e7d32"
+                    HorizontalOptions="Center"
+                    Margin="0,0,0,20"/>
+
+                <!-- Connection Frame with subtle shadow -->
+                <Frame BackgroundColor="White"
+                       CornerRadius="15"
+                       Padding="20"
+                       HasShadow="True"
+                        
+                       HorizontalOptions="Fill">
+                    <VerticalStackLayout Spacing="15" HorizontalOptions="FillAndExpand">
+                        <Label x:Name="ConnectionStatusLabel"
+                               Text="Connection Status: Unknown"
+                               FontSize="18"
+                               TextColor="#757575"
+                               HorizontalOptions="Center"/>
+                        <Button Text="Test Connection"
+                                Clicked="OnTestConnectionClicked"
+                                BackgroundColor="#4caf50"
+                                TextColor="White"
+                                CornerRadius="10"
+                                HeightRequest="50"
+                                HorizontalOptions="Fill"
+                                Padding="10"/>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <!-- Employee Management Frame with a clean, realistic layout -->
+                <Frame BackgroundColor="White"
+                       CornerRadius="10"
+                       Padding="20"
+                       HorizontalOptions="Fill">
+                    <VerticalStackLayout Spacing="10">
+                        <Label Text="Employee Management"
+                               FontSize="18"
+                               FontAttributes="Bold"
+                               TextColor="#2e7d32"
+                               HorizontalOptions="Center"/>
+
+                        <Button Text="View Employee"
+                                Clicked="OpenViewEmployee"
+                                BackgroundColor="#4caf50"
+                                TextColor="White"
+                                CornerRadius="10"
+                                HeightRequest="50"
+                                HorizontalOptions="Fill"
+                                Padding="10"/>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <!-- Activity Indicator with visual feedback -->
+                <ActivityIndicator x:Name="ActivityIndicator"
+                                   IsRunning="{Binding IsLoading}"
+                                   IsVisible="{Binding IsLoading}"
+                                   Color="#4caf50"
+                                   HorizontalOptions="Center"/>
+
+                <!-- Status Message with smooth layout -->
+                <Label x:Name="ConnectionStatusMessage"
+                       Text="{Binding StatusMessage}"
+                       FontSize="16"
+                       TextColor="#2e7d32"
+                       HorizontalOptions="Center"/>
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>
